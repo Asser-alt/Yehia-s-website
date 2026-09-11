@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yes for English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#home" data-view="home"
+          ><span class="brand-mark">Y</span
+          ><span>Yes for<br /><strong>English</strong></span></a
+        >
+        <div class="side-label">Workspace</div>
+        <nav>
+          <button class="nav-item active" data-view="home">
+            <span>⌂</span> Overview
+          </button>
+          <button class="nav-item" data-view="library">
+            <span>▣</span> My library
+          </button>
+          <button class="nav-item" data-view="master">
+            <span>✦</span> Master studio
+          </button>
+          <button class="nav-item" data-view="accounts">
+            <span>♙</span> Accounts
+          </button>
+        </nav>
+        <div class="side-bottom">
+          <div class="mini-help">
+            <span>?</span>
+            <div>
+              <strong>Need a hand?</strong><small>We're here for you.</small>
+            </div>
+          </div>
+          <button class="logout" id="logoutBtn">↪ Sign out</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <span class="brand-mark">Y</span><strong>Yes for English</strong>
+          </div>
+          <div class="top-actions">
+            <button
+              class="icon-btn"
+              id="notificationsBtn"
+              aria-label="Notifications"
+            >
+              ♧<i></i>
+            </button>
+            <div class="avatar" id="avatar">?</div>
+            <div class="profile-name">
+              <strong id="profileName">Guest</strong
+              ><small>Sign in required</small>
+            </div>
+          </div>
+        </header>
+
+        <section id="homeView" class="view active-view">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow">THURSDAY, SEPTEMBER 10</p>
+              <h1>Keep your English<br /><em>moving forward.</em></h1>
+              <p class="subline">
+                Small practice every day makes a big difference.
+              </p>
+            </div>
+            <div class="streak">
+              <span>🔥</span>
+              <div>
+                <strong id="streakCount">0 day streak</strong
+                ><small id="bestStreak">Best: 0 days</small>
+              </div>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card yellow">
+              <span class="stat-icon">◔</span
+              ><strong id="courseProgress">0%</strong
+              ><small>Course progress</small>
+              <div class="meter">
+                <i id="courseProgressBar" style="width: 0%"></i>
+              </div>
+            </div>
+            <div class="stat-card blue">
+              <span class="stat-icon">▶</span
+              ><strong id="watchedLessons">0</strong
+              ><small>Lessons watched</small>
+              <button class="stat-link" id="viewHistoryBtn">
+                View history →
+              </button>
+            </div>
+            <div class="stat-card lilac">
+              <span class="stat-icon">◷</span
+              ><strong id="learningTime">0m</strong><small>Learning time</small>
+              <button class="stat-link" id="learningTimeBtn">
+                This month ↗
+              </button>
+            </div>
+          </div>
+          <div class="section-heading" id="continueHeading">
+            <div>
+              <h2>Continue learning</h2>
+              <p>Pick up exactly where you left off.</p>
+            </div>
+            <button class="text-btn" data-view="library">
+              View all lessons →
+            </button>
+          </div>
+          <div class="continue-card" id="continueCard">
+            <div class="video-thumb">
+              <div class="play">▶</div>
+              <span>Lesson 08 · Speaking</span>
+            </div>
+            <div class="continue-copy">
+              <div class="tag">INTERMEDIATE · UNIT 2</div>
+              <h3>Make yourself understood</h3>
+              <p>
+                Clarity, confidence and the words that make your message land.
+              </p>
+              <div class="progress-line"><i style="width: 42%"></i></div>
+              <div class="continue-meta">
+                <span>42% complete</span
+                ><button class="primary small" id="resumeBtn">
+                  Resume lesson <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="section-heading compact">
+            <div>
+              <h2>Your packages</h2>
+              <p>Courses you've joined.</p>
+            </div>
+            <button class="text-btn" data-view="library">
+              Browse packages →
+            </button>
+          </div>
+          <div class="package-grid" id="homePackages"></div>
+        </section>
+
+        <section id="libraryView" class="view">
+          <div class="page-title">
+            <div>
+              <p class="eyebrow">YOUR LEARNING SPACE</p>
+              <h1>My library</h1>
+              <p class="subline">
+                Everything you're learning, all in one place.
+              </p>
+            </div>
+            <button class="primary" id="joinPackageBtn">
+              + Join a package
+            </button>
+          </div>
+          <div class="library-tabs">
+            <button class="tab active" data-filter="all">All lessons</button
+            ><button class="tab" data-filter="progress">In progress</button
+            ><button class="tab" data-filter="completed">Completed</button>
+          </div>
+          <div class="access-activation">
+            <div>
+              <strong>Have an access code?</strong>
+              <small>Activate one code to unlock your access.</small>
+            </div>
+            <form id="activateCodeForm">
+              <input
+                id="accessCodeInput"
+                inputmode="numeric"
+                maxlength="10"
+                required
+              />
+              <button class="primary" type="submit">
+                Activate code <span>→</span>
+              </button>
+            </form>
+          </div>
+          <div class="library-filter" id="libraryFilter"></div>
+          <div class="lesson-grid" id="lessonGrid"></div>
+        </section>
+
+        <section id="masterView" class="view">
+          <div class="page-title">
+            <div>
+              <p class="eyebrow">MASTER STUDIO</p>
+              <h1>Create something<br /><em>worth watching.</em></h1>
+              <p class="subline">
+                Publish lessons and manage your student community.
+              </p>
+            </div>
+            <span class="master-badge">✦ MASTER ACCESS</span>
+          </div>
+          <button class="code-launch" id="accessCodesBtn">
+            Access codes <span>50 total →</span>
+          </button>
+          <div class="access-codes-panel hidden" id="accessCodesPanel">
+            <div class="code-panel-heading">
+              <div>
+                <h2>Access codes</h2>
+                <p>Codes stay fixed until a student activates one.</p>
+              </div>
+              <div class="code-counts">
+                <strong id="availableCodeCount">0</strong
+                ><small>available</small><strong id="usedCodeCount">0</strong
+                ><small>used</small>
+              </div>
+            </div>
+            <div class="code-columns">
+              <div>
+                <h3>Available codes</h3>
+                <div class="code-list" id="availableCodes"></div>
+              </div>
+              <div>
+                <h3>Activated codes</h3>
+                <div class="code-list" id="usedCodes"></div>
+              </div>
+            </div>
+          </div>
+          <div class="master-grid">
+            <div class="package-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Create a package</h2>
+                  <p>Name the package before adding lessons.</p>
+                </div>
+                <span class="upload-icon">+</span>
+              </div>
+              <form id="packageForm">
+                <label
+                  >Package name<input
+                    id="packageName"
+                    required
+                    placeholder="e.g. Sami package"
+                /></label>
+                <label
+                  >Short description<input
+                    id="packageDescription"
+                    placeholder="What will students learn?"
+                /></label>
+                <button class="primary" type="submit">
+                  Create package <span>→</span>
+                </button>
+              </form>
+              <div class="master-packages" id="masterPackages"></div>
+            </div>
+            <div class="upload-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Upload a lesson</h2>
+                  <p>Share a new video with your package members.</p>
+                </div>
+                <span class="upload-icon">↑</span>
+              </div>
+              <form id="uploadForm">
+                <label
+                  >Lesson title<input
+                    id="lessonTitle"
+                    required
+                    placeholder="e.g. Present perfect made easy" /></label
+                ><label
+                  >Package<select id="lessonPackage">
+                    <option>Everyday English</option>
+                    <option>Confident Conversations</option>
+                    <option>Business English</option>
+                  </select></label
+                ><label
+                  >Video file
+                  <div class="file-drop">
+                    <input type="file" id="videoFile" accept="video/*" /><span
+                      >＋</span
+                    ><strong>Choose a video file</strong
+                    ><small>MP4, MOV or WEBM · up to 1 GB</small>
+                  </div></label
+                ><button class="primary" type="submit">
+                  Publish lesson <span>→</span>
+                </button>
+              </form>
+            </div>
+            <div class="manage-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Published lessons</h2>
+                  <p id="publishedCount">3 lessons live</p>
+                </div>
+                <span class="live-dot">● Live</span>
+              </div>
+              <div id="publishedList"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="accountsView" class="view">
+          <div class="page-title">
+            <div>
+              <p class="eyebrow">MASTER DIRECTORY</p>
+              <h1>All accounts</h1>
+              <p class="subline">
+                Review account details and update student access.
+              </p>
+            </div>
+            <span class="master-badge">✦ YEHIA ONLY</span>
+          </div>
+          <div class="accounts-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Account directory</h2>
+                <p>Yehia's password is protected from changes.</p>
+              </div>
+              <span class="live-dot" id="accountCount">0 accounts</span>
+            </div>
+            <div id="accountList"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="authModal">
+      <div class="modal">
+        <button class="close-modal" data-close="authModal">×</button>
+        <div class="modal-art">
+          <span>Y</span>
+          <p>Your next<br />chapter starts<br /><em>here.</em></p>
+        </div>
+        <div class="auth-content">
+          <div class="auth-switch">
+            <button class="auth-tab active" data-auth="signup">
+              Create account</button
+            ><button class="auth-tab" data-auth="signin">Sign in</button>
+          </div>
+          <div id="signupFormWrap">
+            <h2>Start learning<br /><em>your way.</em></h2>
+            <p class="form-note">
+              Create your free account in less than a minute.
+            </p>
+            <form id="signupForm">
+              <div class="two-fields">
+                <label>First name<input id="firstName" required /></label
+                ><label>Father's name<input id="fatherName" required /></label>
+              </div>
+              <label
+                >Username<input
+                  id="signupUsername"
+                  required
+                  placeholder="Choose a username" /></label
+              ><label
+                >Password<input
+                  id="signupPassword"
+                  type="password"
+                  required
+                  minlength="4"
+                  placeholder="At least 4 characters" /></label
+              ><label
+                >Confirm password<input
+                  id="confirmPassword"
+                  type="password"
+                  required
+                  placeholder="Repeat your password" /></label
+              ><button class="primary full" type="submit">
+                Create my account <span>→</span>
+              </button>
+            </form>
+            <p class="switch-note">
+              Already have an account?
+              <button data-auth="signin">Sign in</button>
+            </p>
+          </div>
+          <div id="signinFormWrap" class="hidden">
+            <h2>Welcome<br /><em>back.</em></h2>
+            <p class="form-note">Your English journey is waiting for you.</p>
+            <form id="signinForm">
+              <label>Username<input id="signinUsername" required /></label
+              ><label
+                >Password<input
+                  id="signinPassword"
+                  type="password"
+                  required /></label
+              ><button class="primary full" type="submit">
+                Sign in <span>→</span>
+              </button>
+            </form>
+            <p class="switch-note">
+              New here? <button data-auth="signup">Create an account</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
-const SUPABASE_URL = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0c2hycWdleWh2Zmpqd3Rxc2FkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNjA2NDgsImV4cCI6MjEwNDYzNjY0OH0.xjNARZkVFmB9lK4kFNfLGffUXxKnyxp3zBUxDBUma5Q";
-const SUPABASE_KEY = "sb_publishable__vrPd4QpXuCUJn9RbFzS2A_N6Nmnr1h";
+const SUPABASE_URL = "https://jtshrqgeyhfvjjwtqsad.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0c2hycWdleWh2Zmpqd3Rxc2FkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNjA2NDgsImV4cCI6MjEwNDYzNjY0OH0.xjNARZkVFmB9lK4kFNfLGffUXxKnyxp3zBUxDBUma5Q";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const MASTER_CODE = "12345678";
